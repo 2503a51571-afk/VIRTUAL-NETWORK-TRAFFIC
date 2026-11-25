@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use — SignalLab</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="/">SignalLab<span>.</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">Overview</a>
+        <a href="/privacy">Privacy</a>
+        <a class="active" href="/terms">Terms</a>
+      </nav>
+      <span class="header-label">AWS NETWORK MONITOR</span>
+    </header>
+
+    <main>
+      <section class="legal-hero">
+        <span class="section-label">SIGNALLAB / INFORMATION</span>
+        <h1>Terms of use.</h1>
+        <p>
+          Guidelines and limitations for using the SignalLab
+          educational network monitoring prototype.
+        </p>
+      </section>
+
+      <div class="legal-layout">
+        <aside class="legal-sidebar">02 / TERMS</aside>
+
+        <div class="legal-content">
+          <section>
+            <h2>01. Purpose</h2>
+            <p>
+              SignalLab is a student-developed educational application
+              demonstrating network connectivity monitoring using
+              AWS EC2, Python, Flask, HTML, CSS, and JavaScript.
+            </p>
+          </section>
+
+          <section>
+            <h2>02. Intended use</h2>
+            <p>
+              The application is intended for learning, demonstration,
+              academic evaluation, and testing within authorized
+              network environments.
+            </p>
+          </section>
+
+          <section>
+            <h2>03. Monitoring functionality</h2>
+            <p>
+              The system periodically checks whether a designated
+              target instance responds to ICMP ping requests.
+              A successful response is displayed as AVAILABLE.
+              An unsuccessful check is displayed as UNAVAILABLE.
+            </p>
+            <p>
+              Ping reachability does not guarantee that every application,
+              network service, or component on the target instance is healthy.
+            </p>
+          </section>
+
+          <section>
+            <h2>04. Availability</h2>
+            <p>
+              The monitoring dashboard depends on the AWS instances,
+              Flask application, network configuration, and secure
+              access connection remaining operational.
+              Availability is not guaranteed.
+            </p>
+          </section>
+
+          <section>
+            <h2>05. Authorized access</h2>
+            <p>
+              Users should access only infrastructure and network
+              resources for which they have permission.
+              Unauthorized monitoring, scanning, or interference
+              with third-party systems is not permitted.
+            </p>
+          </section>
+
+          <section>
+            <h2>06. Accuracy and limitations</h2>
+            <p>
+              Connectivity measurements reflect the result of individual
+              network checks. Temporary packet loss, ICMP filtering,
+              server configuration, and network conditions can affect
+              the reported status and latency.
+            </p>
+          </section>
+
+          <section>
+            <h2>07. Educational disclaimer</h2>
+            <p>
+              SignalLab is provided as an educational prototype.
+              It is not presented as a production-grade network
+              monitoring or incident response service.
+            </p>
+          </section>
+
+          <section>
+            <h2>08. Changes</h2>
+            <p>
+              The project may be modified as development continues.
+              Features, monitoring behavior, and these informational
+              terms may change in future versions.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-brand">SignalLab.</span>
+      <span>Virtual Network Traffic Light System</span>
+      <div class="footer-links">
+        <a href="/">Overview</a>
+        <a href="/privacy">Privacy</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

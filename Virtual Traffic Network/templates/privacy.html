@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — SignalLab</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="/">SignalLab<span>.</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">Overview</a>
+        <a class="active" href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+      <span class="header-label">AWS NETWORK MONITOR</span>
+    </header>
+
+    <main>
+      <section class="legal-hero">
+        <span class="section-label">SIGNALLAB / INFORMATION</span>
+        <h1>Privacy policy.</h1>
+        <p>
+          A transparent explanation of the information used by
+          this educational network monitoring application.
+        </p>
+      </section>
+
+      <div class="legal-layout">
+        <aside class="legal-sidebar">01 / PRIVACY</aside>
+
+        <div class="legal-content">
+          <section>
+            <h2>01. Overview</h2>
+            <p>
+              SignalLab is an educational project designed to demonstrate
+              network connectivity monitoring between Amazon EC2 instances.
+              The application displays network availability and latency
+              through a browser-based dashboard.
+            </p>
+          </section>
+
+          <section>
+            <h2>02. Information displayed</h2>
+            <p>
+              The dashboard displays the target instance's private IP
+              address, connectivity status, ping latency, and the time
+              of the most recent network check.
+            </p>
+            <p>
+              This information is obtained from the monitoring backend
+              and is used to show the current network state.
+            </p>
+          </section>
+
+          <section>
+            <h2>03. Personal information</h2>
+            <p>
+              The current dashboard does not provide user registration,
+              account profiles, or forms requesting personal information.
+              It does not intentionally collect names, email addresses,
+              or passwords through its interface.
+            </p>
+          </section>
+
+          <section>
+            <h2>04. Cookies and local storage</h2>
+            <p>
+              The current dashboard JavaScript does not set cookies or
+              store monitoring results in browser local storage.
+              The application does not include advertising or analytics
+              tracking scripts.
+            </p>
+          </section>
+
+          <section>
+            <h2>05. Server and infrastructure logs</h2>
+            <p>
+              The web server, SSH service, and AWS infrastructure may
+              generate operational or security logs. These can include
+              request details, timestamps, and connection information.
+              Such logs are separate from the dashboard's displayed
+              monitoring data.
+            </p>
+          </section>
+
+          <section>
+            <h2>06. Network monitoring</h2>
+            <p>
+              SignalLab uses ICMP ping requests to check connectivity
+              with a designated AWS EC2 instance. These checks are
+              performed by the server rather than the visitor's browser.
+            </p>
+          </section>
+
+          <section>
+            <h2>07. Data security</h2>
+            <p>
+              The educational deployment is accessed through an SSH
+              tunnel. Access permissions and infrastructure security
+              depend on the AWS configuration and operating environment.
+              No system should be considered completely secure.
+            </p>
+          </section>
+
+          <section>
+            <h2>08. Policy updates</h2>
+            <p>
+              This policy describes the current educational prototype.
+              It should be reviewed and updated if additional features,
+              data collection, external hosting, or authentication
+              services are introduced.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-brand">SignalLab.</span>
+      <span>Virtual Network Traffic Light System</span>
+      <div class="footer-links">
+        <a href="/">Overview</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

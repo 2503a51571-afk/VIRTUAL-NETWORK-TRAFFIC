@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>SignalLab — Network Monitor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="/">SignalLab<span>.</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="/">Overview</a>
+        <a href="#records">Records</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+      <span class="header-label">AWS NETWORK MONITOR</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          VIRTUAL LAB / CONNECTIVITY
+        </div>
+        <h1>Network health,<br><span>at a glance.</span></h1>
+        <p class="hero-description">
+          A clearer way to monitor network availability.
+          Live connectivity checks between AWS virtual machines,
+          translated into simple, meaningful signals.
+        </p>
+        <div class="hero-meta">
+          <span class="live-indicator"><span class="live-dot"></span> Live monitoring</span>
+          <span class="meta-divider"></span>
+          <span>Auto-refresh every 3 seconds</span>
+        </div>
+      </section>
+
+      <section class="monitor-panel" aria-labelledby="monitor-title">
+        <div class="panel-header">
+          <div>
+            <div class="section-label">01 / CONNECTION MONITOR</div>
+            <h2 id="monitor-title">Live connection status</h2>
+          </div>
+          <div id="statusBadge" class="status-badge checking" role="status" aria-live="polite">
+            <span class="badge-dot"></span>
+            <span id="statusText">CHECKING</span>
+          </div>
+        </div>
+
+        <div class="traffic-display">
+          <div class="signal">
+            <div class="signal-light green-light" id="greenLed" aria-hidden="true">
+              <span class="light-inner"></span>
+            </div>
+            <span class="signal-title">Available</span>
+            <span class="signal-subtitle">Connection established</span>
+          </div>
+
+          <div class="signal-divider"></div>
+
+          <div class="signal">
+            <div class="signal-light red-light" id="redLed" aria-hidden="true">
+              <span class="light-inner"></span>
+            </div>
+            <span class="signal-title">Unavailable</span>
+            <span class="signal-subtitle">No ping response</span>
+          </div>
+        </div>
+
+        <div class="connection-summary">
+          <div class="summary-label">CURRENT STATE</div>
+          <div id="connectionMessage" class="connection-message" aria-live="polite">
+            Establishing connection...
+          </div>
+          <p id="connectionDescription" class="connection-description">
+            Waiting for the first network response.
+          </p>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-label">SOURCE / VM1</span>
+            <strong>172.31.31.90</strong>
+            <span class="metric-detail">Monitoring server</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">TARGET / VM2</span>
+            <strong id="targetIp">172.31.26.58</strong>
+            <span class="metric-detail">Target instance</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">PING LATENCY</span>
+            <strong id="latency">—</strong>
+            <span class="metric-detail">Round-trip time</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">LAST CHECKED</span>
+            <strong id="lastChecked">—</strong>
+            <span class="metric-detail">Local time</span>
+          </div>
+        </div>
+
+        <div class="panel-footer">
+          <div class="refresh-note">
+            <span class="refresh-pulse"></span>
+            Checking automatically every 3 seconds
+          </div>
+          <button id="refreshButton" class="primary-button" type="button">
+            <span>Refresh now</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="information-section">
+
+<section class="records-section" id="records">
+  <div class="records-header">
+    <div>
+      <span class="section-label">02 / MONITORING RECORDS</span>
+      <h2>Connection history.</h2>
+      <p>Recent connectivity checks from your AWS infrastructure.</p>
+    </div>
+    <button class="records-button" id="clearRecords" type="button">
+      Clear records
+    </button>
+  </div>
+
+  <div class="records-table-wrap">
+    <table class="records-table">
+      <thead>
+        <tr>
+          <th>TIME</th>
+          <th>CONNECTION STATUS</th>
+          <th>LATENCY</th>
+          <th>TARGET IP</th>
+        </tr>
+      </thead>
+      <tbody id="recordsBody">
+        <tr>
+          <td colspan="4" class="empty-records">
+            Waiting for monitoring records...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="records-note">
+    Showing the latest 20 checks from this browser session.
+  </p>
+</section>
+
+        <div class="section-heading">
+          <span class="section-label">02 / SYSTEM OVERVIEW</span>
+          <h2>Simple signals.<br>Real infrastructure.</h2>
+          <p>
+            Built on actual AWS infrastructure, not simulated responses.
+            Each status reflects an ICMP connectivity check.
+          </p>
+        </div>
+
+        <div class="features">
+          <article class="feature">
+            <span class="feature-number">01</span>
+            <h3>Real-time detection</h3>
+            <p>Python checks whether the target EC2 instance responds to ICMP ping requests.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-number">02</span>
+            <h3>Immediate clarity</h3>
+            <p>Green and red visual indicators communicate network availability without interpreting terminal output.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-number">03</span>
+            <h3>Automatic recovery</h3>
+            <p>The dashboard updates its state automatically when communication is restored.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="architecture-section">
+        <div>
+          <span class="section-label">03 / ARCHITECTURE</span>
+          <h2>Behind the signal.</h2>
+        </div>
+        <div class="architecture-flow" aria-label="Monitoring architecture">
+          <div class="architecture-node">
+            <span class="node-label">SOURCE</span>
+            <strong>AWS EC2 / VM1</strong>
+            <small>Python + Flask</small>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="architecture-node">
+            <span class="node-label">NETWORK CHECK</span>
+            <strong>ICMP Ping</strong>
+            <small>Request / response</small>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="architecture-node">
+            <span class="node-label">DESTINATION</span>
+            <strong>AWS EC2 / VM2</strong>
+            <small>Target instance</small>
+          </div>
+        </div>
+        <p class="architecture-note">
+          AWS Region: us-east-1 · Monitoring interval: 3 seconds · Backend: Flask REST API
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-brand">SignalLab.</span>
+      <span>Virtual Network Traffic Light System</span>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
